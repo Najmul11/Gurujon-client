@@ -1,9 +1,9 @@
-import React from 'react';
+import React ,{useContext} from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const Faq = () => {
     return (
         <div>
-            
         </div>
     );
 };

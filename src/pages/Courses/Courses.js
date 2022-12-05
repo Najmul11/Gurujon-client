@@ -39,7 +39,7 @@ const Courses = () => {
                     </div>
                 </div>
             </div>
-            <div className="col-span-6 border "> 07
+            <div className="col-span-6 border ">
                 <Outlet></Outlet>
             </div>
         </div>
