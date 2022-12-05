@@ -3,6 +3,8 @@ import { Outlet, useLoaderData } from 'react-router-dom';
 import Course from './Course';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/pagination';
+import { Autoplay, Pagination} from "swiper";
 
 
 const Courses = () => {
@@ -22,7 +24,11 @@ const Courses = () => {
                         <Swiper
                             className='w-full mt-8 hover:'
                             spaceBetween={50}
+                            loop={true}
+                            autoplay={{delay:2500,pauseOnMouseEnter:true, disableOnInteraction:false}}
                             slidesPerView={1}
+                            pagination={{type:'progressbar',}}
+                            modules={[Autoplay,Pagination]}
                             >
                             {
                                 courseCategories.map(course=><SwiperSlide key={course.id2}>
