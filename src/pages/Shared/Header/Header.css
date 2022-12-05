@@ -1,3 +1,5 @@
 .active{
     text-decoration: overline;
+    color: black;
+    background-color: transparent;
 }

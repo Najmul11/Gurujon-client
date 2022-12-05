@@ -50,7 +50,7 @@ const Header = () => {
                     <ul className="menu menu-horizontal p-0">
                         <li className="px-4"><NavLink to='/courses' className="btn btn-ghost rounded-md">Courses</NavLink></li>
                         <li className="px-4"><NavLink to='/faq' className="btn btn-ghost rounded-md">Faq</NavLink></li>
-                        <li className="px-4"><NavLink to='/faq' className="btn btn-ghost rounded-md">Blog</NavLink></li>
+                        <li className="px-4"><NavLink to='/blog' className="btn btn-ghost rounded-md">Blog</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

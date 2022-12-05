@@ -1,0 +1,43 @@
+import React from 'react';
+import { Outlet, useLoaderData } from 'react-router-dom';
+import Course from './Course';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
+
+const Courses = () => {
+    const courseCategories=useLoaderData()
+
+    return (
+        <div className="grid grid-cols-8 gap-8 container mx-auto ">
+            <div className='col-span-2'>
+                <div className="card bg-base-100 shadow-xl ">
+                    <div className="card-body">
+                        <>
+                            <h2 className="card-title mb-3">Our Top Courses</h2>
+                            {
+                                courseCategories.map(course=><Course key={course.id} course={course}></Course>)
+                            }
+                        </>
+                        <Swiper
+                            className='w-full mt-8 hover:'
+                            spaceBetween={50}
+                            slidesPerView={1}
+                            >
+                            {
+                                courseCategories.map(course=><SwiperSlide key={course.id2}>
+                                    <img className='w-full ' src={course.icon} alt="" />
+                                </SwiperSlide>)
+                            }
+                        </Swiper>    
+                    </div>
+                </div>
+            </div>
+            <div className="col-span-6 border "> 07
+                <Outlet></Outlet>
+            </div>
+        </div>
+    );
+};
+
+export default Courses;
