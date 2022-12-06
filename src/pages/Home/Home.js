@@ -17,6 +17,7 @@ const Home = () => {
                     <h1 className='text-8xl font-semibold text-center  text-primary'>Welcome to Gurujon</h1>
                     <h4 className='text-center text-3xl font-semibold'>Best learning environment since 2010</h4>
                 </div>
+                <p className='text-2xl font-medium text-center'>Check out fency slider</p>
                 <Swiper
                     className='w-1/2 mt-8 hover:'
                     spaceBetween={50}
