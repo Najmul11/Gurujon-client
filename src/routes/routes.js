@@ -5,7 +5,7 @@ import AllCourses from '../pages/AllCourses/AllCourses';
 import Login from '../pages/Authentication/Login';
 import Register from '../pages/Authentication/Register';
 import Blog from '../pages/Blog/Blog';
-import CourseDetail from '../pages/CourseDetail/CourseDetail';
+import Checkout from '../pages/Checkout/Checkout';
 import Courses from '../pages/Courses/Courses';
 import CoursesByCategory from '../pages/CoursesByCategory/CoursesByCategory';
 import Faq from '../pages/Faq/Faq';
@@ -51,6 +51,11 @@ export const router = createBrowserRouter([
                 loader:async()=>fetch('http://localhost:5000/allcourses'),
                 element:<Blog/>
             },
+            {
+                path:'/checkout/:id',
+                loader:({params})=>fetch(`http://localhost:5000/allcourses/${params.id}`),
+                element:<Checkout></Checkout>
+            }
         ]
     }
 ])
