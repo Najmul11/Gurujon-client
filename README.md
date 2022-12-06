@@ -1,12 +1,14 @@
 # GURUJON
 ### Live: [Gurujon]().
 
+
 ## Features
   + SPA
   + Authentication implemented
   + Fency carousel
   + Dynamic route
   + Responsie
+
 
 ### Dependencies
   + React hot toast

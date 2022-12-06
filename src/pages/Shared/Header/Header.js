@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import './Header.css'
-import {NavLink,Link , useNavigate} from "react-router-dom"
+import {NavLink,Link} from "react-router-dom"
 import brandLogo from '../../../images/brand-logo.png'
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 import { AuthContext } from "../../../contexts/AuthProvider";
@@ -17,7 +17,7 @@ const Header = () => {
         .catch(error=>{})
     }
   return (
-    <div className="bg-amber-200 text-dark">
+    <div className="bg-amber-200 text-dark mb-0">
         <div className="container mx-auto">
             <div className="navbar">
                 <div className="navbar-start">
