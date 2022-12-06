@@ -16,7 +16,7 @@ const Checkout = () => {
                     <h2 className="card-title">{checkoutDetails.courseName}</h2>
                     <p>You are about to purchase the course</p>
                     <div className="card-actions justify-end">
-                        <button onClick={handleClick} className="btn text-primary hover:bg-gray-200 bg-transparent border-0">
+                        <button disabled={purchase? true:false} onClick={handleClick} className="btn text-primary hover:bg-gray-200 bg-transparent border-0">
                             {purchase ?<><BiCheckDouble className='text-xl'/>Added</> :'continue'}</button>
                     </div>
                 </div>

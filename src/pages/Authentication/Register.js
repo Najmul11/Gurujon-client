@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 import { AuthContext } from '../../contexts/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 
 const Register = () => {
     const {signInWithGoogle, signInWithGithub, createUser,updateUserProfile}=useContext(AuthContext)
+    const navigate=useNavigate()
     // create user with email/pass
     const handleSubmit=e=>{
         e.preventDefault()
@@ -16,11 +19,18 @@ const Register = () => {
         const email=form.email.value;
         const password=form.password.value;
 
+        if (password.length<6) {
+           return  toast.error('password should be atleast 6 characters')
+        }
+
         createUser(email, password)
         .then(result=>{
             updateProfile(name,photo)
+            navigate('/')
         })
-        .catch(error=>{})
+        .catch(error=>{
+            toast.error('user already exist!')
+        })
     }
     // update name /photo 
     const updateProfile=(name, photo)=>{
@@ -35,13 +45,17 @@ const Register = () => {
     // google popup signin
     const googleSignIn=()=>{
         signInWithGoogle()
-        .then(result=>{})
+        .then(result=>{
+            navigate('/')
+        })
         .catch(error=>{})
     }
     // github popup signin
     const githubSignIn=()=>{
         signInWithGithub()
-        .then(result=>{})
+        .then(result=>{
+            navigate('/')
+        })
         .catch(error=>{})
     }
     return (
@@ -70,7 +84,7 @@ const Register = () => {
                             <div className="flex items-center h-5">
                                 <input id="remember" type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
                             </div>
-                            <label htmlFor="remember" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+                            <label htmlFor="remember" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Accept terms and conditions</label>
                         </div>
                     </div>
                     <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
@@ -94,6 +108,7 @@ const Register = () => {
                             </button>
                         </div>
                     </div>
+                    <Toaster/>
                 </div>
             </div>
        </div>
