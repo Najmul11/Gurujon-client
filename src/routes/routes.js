@@ -9,6 +9,7 @@ import Checkout from '../pages/Checkout/Checkout';
 import Courses from '../pages/Courses/Courses';
 import CoursesByCategory from '../pages/CoursesByCategory/CoursesByCategory';
 import Faq from '../pages/Faq/Faq';
+import PrivateRoute from './PrivateRoute';
 
 export const router = createBrowserRouter([
     {
@@ -53,8 +54,8 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/checkout/:id',
-                loader:({params})=>fetch(`http://localhost:5000/allcourses/${params.id}`),
-                element:<Checkout></Checkout>
+                loader:({params})=>fetch(`http://localhost:5000/checkout/${params.id}`),
+                element:<PrivateRoute><Checkout></Checkout></PrivateRoute>
             }
         ]
     }

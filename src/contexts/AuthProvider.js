@@ -10,34 +10,41 @@ const githubProvider=new GithubAuthProvider()
 
 const AuthProvider = (props) => {
     const [user, setUser]=useState(null)
+    const [loading, setLoading]=useState(true)
     // create user
     const createUser=(email, password)=>{
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     // email/pass signin
     const signIn=(email, password)=>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     // google popup signin
     const signInWithGoogle=()=>{
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
     // github popup signin
     const signInWithGithub=()=>{
+        setLoading(true)
         return signInWithPopup(auth, githubProvider)
     }
     // auth state observer
     useEffect(()=>{
         const unsubscribe=onAuthStateChanged(auth, currentUser=>{
             setUser(currentUser)
+            setLoading(false)
         })
         return ()=>unsubscribe()
     },[])
     //  signout
     const logout=()=>{
+        setLoading(true)
         return signOut(auth)
     }
-    const AuthInfo={user, signInWithGoogle, signInWithGithub, createUser, signIn, logout}
+    const AuthInfo={user, signInWithGoogle, signInWithGithub, createUser, signIn, logout, loading}
     return (
        <AuthContext.Provider value={AuthInfo}>
             {props.children}
