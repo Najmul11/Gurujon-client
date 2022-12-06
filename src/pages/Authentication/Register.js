@@ -6,7 +6,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 
 const Register = () => {
-    const {signInWithGoogle, signInWithGithub, createUser}=useContext(AuthContext)
+    const {signInWithGoogle, signInWithGithub, createUser,updateUserProfile}=useContext(AuthContext)
     // create user with email/pass
     const handleSubmit=e=>{
         e.preventDefault()
@@ -17,8 +17,20 @@ const Register = () => {
         const password=form.password.value;
 
         createUser(email, password)
-        .then(result=>{})
+        .then(result=>{
+            updateProfile(name,photo)
+        })
         .catch(error=>{})
+    }
+    // update name /photo 
+    const updateProfile=(name, photo)=>{
+        const profile={
+            displayName:name,
+            photoURL:photo
+        }
+        updateUserProfile(profile)
+        .then(res=>{})
+        .then(err=>{})
     }
     // google popup signin
     const googleSignIn=()=>{

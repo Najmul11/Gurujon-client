@@ -1,11 +1,14 @@
 import React, {useContext} from 'react';
-import {Link} from "react-router-dom"
+import {Link, useLocation, useNavigate} from "react-router-dom"
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
     const {signInWithGoogle, signInWithGithub, signIn}=useContext(AuthContext)
+    const location=useLocation()
+    const navigate=useNavigate()
+    const from=location.state?.from?.pathname || '/'
     // signin with email/password
     const handleSubmit=e=>{
         e.preventDefault()
@@ -15,7 +18,7 @@ const Login = () => {
 
         signIn(email, password)
         .then(result=>{
-            console.log(result.user);
+            navigate(from, {replace:true})
         })
         .catch(error=>{})
     }
@@ -23,14 +26,16 @@ const Login = () => {
     const googleSignIn=()=>{
         signInWithGoogle()
         .then(result=>{
-            console.log(result.user);
+            navigate(from, {replace:true})
         })
         .catch(error=>{})
     }
     // github popup signin
     const githubSignIn=()=>{
         signInWithGithub()
-        .then(result=>{})
+        .then(result=>{
+            navigate(from, {replace:true})
+        })
         .catch(error=>{})
     }
     return (
