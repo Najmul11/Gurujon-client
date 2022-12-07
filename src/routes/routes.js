@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader:()=>fetch('http://localhost:5000/categories'),
+                loader:()=>fetch('https://gurujon-backend.vercel.app/categories'),
             },
             {
                 path:'/register',
@@ -33,17 +33,17 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/courses',
-                loader:()=>fetch('http://localhost:5000/categories'),
+                loader:()=>fetch('https://gurujon-backend.vercel.app/categories'),
                 element:<Courses></Courses>,
                 children:[
                     {
                         path:'/courses',
-                        loader:async()=>fetch('http://localhost:5000/allcourses'),
+                        loader:async()=>fetch('https://gurujon-backend.vercel.app/allcourses'),
                         element:<AllCourses></AllCourses>
                     },
                     {
                         path:'/courses/:id',
-                        loader:({params})=>fetch(`http://localhost:5000/allcourses/${params.id}`),
+                        loader:({params})=>fetch(`https://gurujon-backend.vercel.app/allcourses/${params.id}`),
                         element:<CoursesByCategory></CoursesByCategory>
                     }
                 ]
@@ -51,17 +51,15 @@ export const router = createBrowserRouter([
            
             {
                 path:'/faq',
-                loader:async()=>fetch('http://localhost:5000/allcourses'),
                 element:<Faq></Faq>
             },
             {
                 path:'/blog',
-                loader:async()=>fetch('http://localhost:5000/allcourses'),
                 element:<Blog/>
             },
             {
                 path:'/checkout/:id',
-                loader:({params})=>fetch(`http://localhost:5000/checkout/${params.id}`),
+                loader:({params})=>fetch(`https://gurujon-backend.vercel.app/checkout/${params.id}`),
                 element:<PrivateRoute><Checkout></Checkout></PrivateRoute>
             },
             {

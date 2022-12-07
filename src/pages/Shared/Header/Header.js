@@ -55,11 +55,13 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     <div className="flex items-center">
+                        <div className="hidden md:block">
                         {
                             isDark ? 
                             <HiOutlineSun onClick={handleDarkMode} className="text-2xl mr-4 hover:fill-white cursor-pointer"/> :
                             <HiOutlineMoon onClick={handleDarkMode} className="text-2xl mr-4 hover:fill-black cursor-pointer"/>
                         }
+                        </div>
                         {
                             user ?
                             <div className="dropdown dropdown-end">
@@ -76,7 +78,7 @@ const Header = () => {
                                 </ul>
                             </div>
                             :
-                            <NavLink to='/login' className="mr-4 btn btn-ghost">Login</NavLink>
+                            <NavLink to='/login' className="ml-4 btn btn-ghost">Login</NavLink>
                         }
                     </div>
                 </div>

@@ -11,8 +11,8 @@ const Checkout = () => {
     const checkoutDetails=useLoaderData()
     return (
         <div>
-            <div className='container mx-auto lg:m-20'>
-                <div className="card w-96 bg-base-100 shadow-xl mx-auto border">
+            <div className='container mx-auto lg:m-20 m-6'>
+                <div className="card md:w-96 bg-base-100 shadow-xl md:mx-auto w-full border">
                     <figure><img src={checkoutDetails.img} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{checkoutDetails.courseName}</h2>

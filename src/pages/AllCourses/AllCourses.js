@@ -7,7 +7,7 @@ const AllCourses = () => {
     return (
         <div>
             <h1 className='text-center text-3xl font-bold mt-8'>Look at the courses we offer</h1>
-            <div className='grid grid-cols-3 gap-5 mt-10'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-5 mt-10'>
                 {
                     courseCollection.map(course=><SingleCourse key={course.course_id} course={course}></SingleCourse>)
                 }

@@ -14,7 +14,7 @@ const Courses = () => {
     return (
         <div>
             <div className="grid grid-cols-8 gap-8 container mx-auto ">
-                <div className='col-span-2'>
+                <div className='col-span-2 hidden md:block'>
                     <div className="card bg-base-100 shadow-xl ">
                         <div className="card-body">
                             <>
@@ -41,7 +41,7 @@ const Courses = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-span-6">
+                <div className="col-span-8 md:col-span-6">
                     <Outlet></Outlet>
                 </div>
             </div>
