@@ -11,13 +11,13 @@ import { Autoplay, Pagination} from "swiper";
 const Home = () => {
     const courseCategories=useLoaderData()
     return (
-        <div className='bg-gray-200'>
+        <div className='bg-gray-200 dark:bg-gray-800'>
             <div className='container mx-auto'>
                 <div>
-                    <h1 className='text-4xl md:text-8xl font-semibold text-center  text-primary'>Welcome to Gurujon</h1>
-                    <h4 className='text-center text-3xl font-semibold'>Best learning environment since 2010</h4>
+                    <h1 className='text-4xl md:text-8xl font-semibold text-center  text-primary dark:text-white'>Welcome to Gurujon</h1>
+                    <h4 className='text-center text-3xl font-semibold dark:text-white'>Best learning environment since 2010</h4>
                 </div>
-                <p className='text-2xl font-medium text-center'>Check out fency slider</p>
+                <p className='text-2xl font-medium text-center dark:text-white'>Check out fency slider</p>
                 <Swiper
                     className='md:w-1/2 mt-8 hover:'
                     spaceBetween={50}

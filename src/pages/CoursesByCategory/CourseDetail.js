@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const CourseDetail = ({filterdCourse}) => {
     const {courseName, body, img, course_id}=filterdCourse
     return (
-        <div className="card  bg-amber-100 shadow-xl mt-5 border border-gray-300">
+        <div className="card dark:bg-indigo-200 bg-amber-100 shadow-xl mt-5 border border-gray-300">
         <figure><img src={img} alt="Shoes" /></figure>
         <div className="card-body">
             <h2 className="card-title">{courseName}</h2>

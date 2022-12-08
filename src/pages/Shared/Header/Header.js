@@ -1,15 +1,19 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useRef, useState} from "react";
 import './Header.css'
 import {NavLink,Link} from "react-router-dom"
 import brandLogo from '../../../images/brand-logo.png'
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import { DarkContext } from "../../../App";
+
 
 const Header = () => {
-    const [isDark, setIsDark]=useState(false)
+    const darkRef=useRef()
+    const {setDarkMode,darkMode}=useContext(DarkContext)
+
     const {user, logout}=useContext(AuthContext)
     const handleDarkMode=()=>{
-        setIsDark(!isDark)
+        setDarkMode(!darkMode)
     }
     const handleLogout=()=>{
         logout()
@@ -17,7 +21,7 @@ const Header = () => {
         .catch(error=>{})
     }
   return (
-    <div className="bg-amber-200 text-dark mb-0">
+    <div className="bg-amber-200 text-dark mb-0 dark:bg-gray-800 dark:text-white" ref={darkRef}>
         <div className="container mx-auto">
             <div className="navbar">
                 <div className="navbar-start">
@@ -48,16 +52,16 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li className="px-4"><NavLink to='/courses' className="btn btn-ghost rounded-md">Courses</NavLink></li>
-                        <li className="px-4"><NavLink to='/faq' className="btn btn-ghost rounded-md">Faq</NavLink></li>
-                        <li className="px-4"><NavLink to='/blog' className="btn btn-ghost rounded-md">Blog</NavLink></li>
+                        <li className="px-4 "><NavLink to='/courses' className="btn dark:text-white text-black btn-ghost rounded-md">Courses</NavLink></li>
+                        <li className="px-4 "><NavLink to='/faq' className="btn dark:text-white text-black btn-ghost rounded-md">Faq</NavLink></li>
+                        <li className="px-4 "><NavLink to='/blog' className="btn dark:text-white text-black btn-ghost rounded-md">Blog</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
                     <div className="flex items-center">
                         <div className="hidden md:block">
                         {
-                            isDark ? 
+                            darkMode ? 
                             <HiOutlineSun onClick={handleDarkMode} className="text-2xl mr-4 hover:fill-white cursor-pointer"/> :
                             <HiOutlineMoon onClick={handleDarkMode} className="text-2xl mr-4 hover:fill-black cursor-pointer"/>
                         }

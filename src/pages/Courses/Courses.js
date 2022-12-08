@@ -12,10 +12,10 @@ const Courses = () => {
     const courseCategories=useLoaderData()
 
     return (
-        <div>
+        <div className='dark:bg-gray-800'>
             <div className="grid grid-cols-8 gap-8 container mx-auto ">
                 <div className='col-span-2 hidden md:block'>
-                    <div className="card bg-base-100 shadow-xl ">
+                    <div className="card dark:bg-indigo-200 shadow-xl ">
                         <div className="card-body">
                             <>
                                 <h2 className="card-title mb-3">Our Top Courses</h2>
@@ -41,7 +41,7 @@ const Courses = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-span-8 md:col-span-6">
+                <div className="col-span-8 md:col-span-6 dark:bg-gray-800">
                     <Outlet></Outlet>
                 </div>
             </div>
